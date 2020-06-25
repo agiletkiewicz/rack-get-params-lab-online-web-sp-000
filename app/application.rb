@@ -18,7 +18,12 @@ class Application
     elsif req.path.match(/cart/)
       resp.write "Here is the cart"
     elsif req.path.match(/add/)
-      item_in_stock? = req.params["item"]
+      item = req.params["item"]
+      if @@items.include?(item)
+        @@cart << item 
+      else 
+        "Item not in stock"
+      end
     else
       resp.write "Path Not Found"
     end

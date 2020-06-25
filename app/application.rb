@@ -31,7 +31,7 @@ class Application
         @@cart << item 
         resp.write "added #{item}"
       else 
-        "Item not in stock"
+        resp.write "We don't have that item"
       end
       
     else

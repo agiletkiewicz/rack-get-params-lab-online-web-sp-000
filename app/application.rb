@@ -17,6 +17,8 @@ class Application
       resp.write handle_search(search_term)
     elsif req.path.match(/cart/)
       resp.write "Here is the cart"
+    elsif req.path.match(/add/)
+      item_in_stock? = req.params["item"]
     else
       resp.write "Path Not Found"
     end
